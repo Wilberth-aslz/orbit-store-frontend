@@ -3,6 +3,7 @@ import { useAuth } from "../../context/AuthContext";
 import { useToast } from "../../context/ToastContext";
 import { api, extractErrorMessage } from "../../lib/api";
 import type { Product } from "../../types";
+import { IconHeart, IconHeartFilled } from "./Icons";
 
 const currency = new Intl.NumberFormat("es-MX", { style: "currency", currency: "MXN" });
 
@@ -59,7 +60,7 @@ export function ProductCard({ product, isFavorite = false, onToggleFavorite }: P
           className="absolute right-3 top-3 flex h-9 w-9 items-center justify-center rounded-full text-base backdrop-blur transition-transform hover:scale-110 disabled:opacity-60"
           style={{ background: "rgba(10,15,26,0.65)", color: favState ? "var(--accent)" : "#fff" }}
         >
-          {favState ? "♥" : "♡"}
+          {favState ? <IconHeartFilled size={17} /> : <IconHeart size={17} />}
         </button>
         {product.stock <= 3 && product.stock > 0 && (
           <span

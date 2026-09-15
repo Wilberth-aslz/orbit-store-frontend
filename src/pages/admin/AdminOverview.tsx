@@ -3,6 +3,7 @@ import { useToast } from "../../context/ToastContext";
 import { api, extractErrorMessage } from "../../lib/api";
 import type { DashboardSummary } from "../../types";
 import { PageSpinner } from "../../components/ui/Spinner";
+import { IconAlertCircle, IconAlertTriangle, IconCheckCircle } from "../../components/ui/Icons";
 
 const currency = new Intl.NumberFormat("es-MX", { style: "currency", currency: "MXN", maximumFractionDigits: 0 });
 const compactCurrency = new Intl.NumberFormat("es-MX", {
@@ -101,9 +102,7 @@ function LowStockList({ items }: { items: DashboardSummary["lowStock"] }) {
 
       {items.length === 0 ? (
         <div className="flex items-center gap-2 py-6 text-sm" style={{ color: "var(--text-secondary)" }}>
-          <span aria-hidden style={{ color: "var(--accent)" }}>
-            ✓
-          </span>
+          <IconCheckCircle size={16} style={{ color: "var(--accent)" }} />
           Todo el catalogo tiene buen nivel de stock.
         </div>
       ) : (
@@ -114,8 +113,8 @@ function LowStockList({ items }: { items: DashboardSummary["lowStock"] }) {
             return (
               <li key={item.id} className="flex items-center justify-between gap-3 text-sm">
                 <div className="flex items-center gap-2 truncate">
-                  <span aria-hidden style={{ color }}>
-                    {isCritical ? "⛔" : "⚠"}
+                  <span style={{ color }}>
+                    {isCritical ? <IconAlertCircle size={16} /> : <IconAlertTriangle size={16} />}
                   </span>
                   <span className="truncate" style={{ color: "var(--text-primary)" }}>
                     {item.name}

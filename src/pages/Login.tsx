@@ -1,6 +1,7 @@
 import { useState, type FormEvent } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { useAuth } from "../context/AuthContext";
+import { PasswordInput } from "../components/ui/PasswordInput";
 
 export default function Login() {
   const { login } = useAuth();
@@ -59,9 +60,8 @@ export default function Login() {
             <label className="text-sm font-medium" htmlFor="password">
               Contrasena
             </label>
-            <input
+            <PasswordInput
               id="password"
-              type="password"
               required
               value={password}
               onChange={(e) => setPassword(e.target.value)}

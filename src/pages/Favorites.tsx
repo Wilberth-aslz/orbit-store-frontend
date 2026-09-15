@@ -4,6 +4,7 @@ import { useToast } from "../context/ToastContext";
 import { api, extractErrorMessage } from "../lib/api";
 import { PageSpinner } from "../components/ui/Spinner";
 import { ProductCard } from "../components/ui/ProductCard";
+import { IconHeart } from "../components/ui/Icons";
 import type { Favorite } from "../types";
 
 export default function Favorites() {
@@ -32,8 +33,9 @@ export default function Favorites() {
       {favorites.length === 0 ? (
         <div className="card-surface mt-8 flex flex-col items-center gap-3 py-16 text-center">
           <p className="text-lg font-semibold">Aun no tienes favoritos</p>
-          <p className="text-sm" style={{ color: "var(--text-muted)" }}>
-            Explora el catalogo y guarda lo que te guste con el corazon ♡
+          <p className="flex items-center justify-center gap-1.5 text-sm" style={{ color: "var(--text-muted)" }}>
+            Explora el catalogo y guarda lo que te guste con
+            <IconHeart size={14} />
           </p>
           <Link to="/" className="btn-accent mt-2 rounded-lg px-5 py-2.5 text-sm">
             Ir al catalogo

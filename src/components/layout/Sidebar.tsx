@@ -1,5 +1,6 @@
 import { Link, NavLink, useNavigate } from "react-router-dom";
 import { useAuth } from "../../context/AuthContext";
+import { IconChart, IconHeart, IconShop } from "../ui/Icons";
 
 interface SidebarProps {
   open: boolean;
@@ -41,18 +42,18 @@ export function Sidebar({ open, onClose }: SidebarProps) {
 
       <nav className="flex flex-1 flex-col gap-1 px-3">
         <NavLink to="/" end onClick={onClose} className={navItemBase} style={({ isActive }) => itemStyle(isActive)}>
-          <span aria-hidden>🛍️</span>
+          <IconShop />
           Catalogo
         </NavLink>
         {user && (
           <NavLink to="/favoritos" onClick={onClose} className={navItemBase} style={({ isActive }) => itemStyle(isActive)}>
-            <span aria-hidden>♥</span>
+            <IconHeart />
             Favoritos
           </NavLink>
         )}
         {isAdmin && (
           <NavLink to="/admin" onClick={onClose} className={navItemBase} style={({ isActive }) => itemStyle(isActive)}>
-            <span aria-hidden>📊</span>
+            <IconChart />
             Panel de control
           </NavLink>
         )}

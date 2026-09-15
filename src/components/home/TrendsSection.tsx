@@ -4,6 +4,7 @@ import { extractErrorMessage } from "../../lib/api";
 import { fetchTrendingByCategory, TREND_CATEGORIES } from "../../lib/fakestore";
 import type { FakeStoreProduct } from "../../types";
 import { CategoryTabs } from "../ui/CategoryTabs";
+import { IconStar } from "../ui/Icons";
 
 const currency = new Intl.NumberFormat("es-MX", { style: "currency", currency: "MXN" });
 
@@ -91,8 +92,9 @@ export function TrendsSection() {
                   <span className="text-base font-bold" style={{ color: "var(--accent)" }}>
                     {currency.format(item.price)}
                   </span>
-                  <span className="text-xs" style={{ color: "var(--text-muted)" }}>
-                    ★ {item.rating.rate} ({item.rating.count})
+                  <span className="flex items-center gap-1 text-xs" style={{ color: "var(--text-muted)" }}>
+                    <IconStar size={12} style={{ color: "var(--warning)" }} />
+                    {item.rating.rate} ({item.rating.count})
                   </span>
                 </div>
               </a>

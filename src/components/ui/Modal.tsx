@@ -1,5 +1,6 @@
 import { useEffect, type ReactNode } from "react";
 import { createPortal } from "react-dom";
+import { IconClose } from "./Icons";
 
 interface ModalProps {
   open: boolean;
@@ -39,7 +40,7 @@ export function Modal({ open, onClose, title, children }: ModalProps) {
             className="flex h-8 w-8 items-center justify-center rounded-full"
             style={{ border: "1px solid var(--border-strong)", color: "var(--text-secondary)" }}
           >
-            ✕
+            <IconClose size={16} />
           </button>
         </div>
         {children}

@@ -1,6 +1,7 @@
 import { useState, type FormEvent } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { useAuth } from "../context/AuthContext";
+import { PasswordInput } from "../components/ui/PasswordInput";
 
 export default function Register() {
   const { register } = useAuth();
@@ -67,9 +68,8 @@ export default function Register() {
             <label className="text-sm font-medium" htmlFor="password">
               Contrasena
             </label>
-            <input
+            <PasswordInput
               id="password"
-              type="password"
               required
               minLength={6}
               value={password}

@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom";
+import { IconMenu } from "../ui/Icons";
 
 interface MobileTopBarProps {
   onOpenMenu: () => void;
@@ -29,7 +30,7 @@ export function MobileTopBar({ onOpenMenu }: MobileTopBarProps) {
         className="flex h-10 w-10 items-center justify-center rounded-lg"
         style={{ border: "1px solid var(--border-strong)" }}
       >
-        <span style={{ color: "var(--text-primary)" }}>☰</span>
+        <IconMenu style={{ color: "var(--text-primary)" }} />
       </button>
     </header>
   );
